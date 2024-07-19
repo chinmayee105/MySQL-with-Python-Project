@@ -1,0 +1,21 @@
+1. List all Mobile Brands available in the dataset.
+
+2. Find the average price of mobiles for each brand.
+
+3. Retrieve the details of the most expensive mobile.
+
+4. Find the total number of mobiles for each brands.
+
+5. Get the brand with the highest average RAM.
+
+6. List all models with battery capacity greater than 45000 mAh.
+
+7. Find the Brand with the cheapest average price. 
+
+8. Get the models that have atleast 128GB of storage and 6GB of RAM.
+
+9. How Does the number of mobile phones by brand correlate with their average price?
+
+10. How does the number of mobile phones by Brand Correlate with their Average Price?
+
+11. What is the Distribution of Rating Accross all mobile phones? 
