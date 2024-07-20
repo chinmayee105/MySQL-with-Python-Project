@@ -1,8 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[2]:
-
 
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -16,11 +11,7 @@ db = mysql.connector.connect(host = "your_host",
 
 cur = db.cursor()
 
-
-# #### 1. List all Mobile Brands available in the dataset
-
-# In[3]:
-
+1. List all Mobile Brands available in the dataset
 
 query = """ select distinct Brands from  mobilecompany.mobile; """
 
@@ -29,12 +20,8 @@ cur.execute(query)
 data = cur.fetchall()
 
 data
-
-
-# #### 2. Find the average price of mobiles for each brand.
-
-# In[4]:
-
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+ 2. Find the average price of mobiles for each brand.
 
 query = """ select Brands, AVG(Price) as 
             average_price FROM mobile
@@ -45,12 +32,9 @@ cur.execute(query)
 query = cur.fetchall()
 
 query
+--------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-# #### 3.Retrieve the details of the most expensive mobile
-
-# In[5]:
-
+3. Retrieve the details of the most expensive mobile
 
 query = """ select * FROM mobile 
             ORDER BY Price DESC 
@@ -61,12 +45,9 @@ cur.execute(query)
 data = cur.fetchall()
 
 data
+---------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-# #### 4. Find the total number of mobiles for each brands
-
-# In[6]:
-
+4. Find the total number of mobiles for each brands
 
 query = """ select Brands, COUNT(*) as 
             total_mobile FROM mobile
@@ -79,12 +60,9 @@ data = cur.fetchall()
 df = pd.DataFrame(data, columns = ["Brands", "total_mobile"])
 
 df
+----------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-# #### 5. Get the brand with the highest average RAM
-
-# In[7]:
-
+5. Get the brand with the highest average RAM
 
 query = """ select Brands, AVG(RAM_Storage) as 
             average_RAM FROM mobile
@@ -97,12 +75,9 @@ cur.execute(query)
 data = cur.fetchall()
 
 data
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-# #### 6.List all models with battery capacity greater than 45000 mAh.
-
-# In[8]:
-
+6.List all models with battery capacity greater than 45000 mAh.
 
 query = """ select * FROM mobile
             WHERE Battery_Capacity > 4000 """
@@ -112,12 +87,9 @@ cur.execute(query)
 data = cur.fetchall()
 
 data
+---------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-# #### 7.Find the Brand with the cheapest average price
-
-# In[9]:
-
+ 7.Find the Brand with the cheapest average price
 
 query = """ select Brands, AVG(Price) as 
             average_price FROM mobile
@@ -130,12 +102,9 @@ cur.execute(query)
 data = cur.fetchall()
 
 data
+---------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-# #### 8.Get the models that have atleast 128GB of storage and 6GB of RAM
-
-# In[10]:
-
+8.Get the models that have atleast 128GB of storage and 6GB of RAM
 
 query = """ select * FROM mobile
             WHERE Internal_Storage >= 128 AND RAM_Storage >= 6; """
@@ -145,12 +114,9 @@ cur.execute(query)
 data = cur.fetchall()
 
 data
+--------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-# #### 9.How Does the number of mobile phones by brand correlate with their average price?
-
-# In[11]:
-
+9.How Does the number of mobile phones by brand correlate with their average price?
 
 query = """ select Brands, AVG(Price) AS
             average_price, COUNT(*) AS
@@ -166,12 +132,9 @@ df = pd.DataFrame(data, columns = ['Brands','average_price','count'])
 sns.lineplot(x = 'count', y = 'average_price', data = df)
 plt.title('Correlation between number of phones and average price')
 plt.show()
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-# #### 10.How does the number of mobile phones by Brand Correlate with their Average Price?
-
-# In[12]:
-
+ 10.How does the number of mobile phones by Brand Correlate with their Average Price?
 
 query = """ select Brands, AVG(Internal_Storage) AS
             average_storage FROM mobile
@@ -186,12 +149,9 @@ sns.barplot(x = 'Brands', y = 'average_price', data = df)
 plt.title('Average Storage Capacity by Brand')
 plt.xticks(rotation = 90)
 plt.show()
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-# #### 11.What is the Distribution of Rating Accross all mobile phones?
-
-# In[13]:
-
+11. What is the Distribution of Rating Accross all mobile phones?
 
 query = """ select price FROM 
             mobile"""
@@ -206,9 +166,4 @@ plt.title('Distribution of Mobile Phone Prices')
 plt.xticks(rotation = 90)
 plt.show()
 
-
-# In[ ]:
-
-
-
-
+-----------------------------------------------------------------------------------------------------------------------------------------------------
